@@ -22,6 +22,11 @@ function demo_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	// Add a class if there is a custom header.
+	if ( has_header_image() ) {
+		$classes[] = 'has-header-image';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'demo_body_classes' );

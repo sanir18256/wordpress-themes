@@ -12,7 +12,6 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-linke	sss
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +25,8 @@ linke	sss
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'demo' ); ?></a>
 
 	<header id="masthead" class="site-header">
+		<?php get_template_part( 'template-parts/header/header', 'image' ); ?>
+		
 		<?php get_template_part( 'template-parts/header/site', 'branding' ); ?> 
 
 		<?php get_template_part( 'template-parts/header/site', 'search' ); ?>

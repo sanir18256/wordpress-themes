@@ -30,17 +30,8 @@ if ( ! function_exists( 'demo_setup' ) ) :
 		/*
 		 * This theme styles the visual editor to resemble the theme style,
 		 * specifically font, colors, and column width.
-		 *
-		 * Google fonts url addition
-		 *
-		 * Font Awesome addition
-		 */
-		add_editor_style( array(
-				'assets/css/editor-style.css',
-				demo_fonts_url(),
-				get_theme_file_uri( 'assets/css/font-awesome/css/font-awesome.css' ),
-			)
-		);
+		  */
+		add_editor_style( array( 'assets/css/editor-style.css', demo_fonts_url() ) );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -57,9 +48,13 @@ if ( ! function_exists( 'demo_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		set_post_thumbnail_size( 1920, 1080, true ); // Ratio 4:3
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'demo' ),
+			'footer'   => __( 'Footer Menu', 'demo' ),
+			'social'   => __( 'Social Menu', 'demo' ),
 		) );
 
 		/*
@@ -172,63 +167,34 @@ function demo_widgets_init() {
 }
 add_action( 'widgets_init', 'demo_widgets_init' );
 
-if ( ! function_exists( 'demo_fonts_url' ) ) :
-	/**
-	 * Register Google fonts for Bold Photography Pro
-	 *
-	 * Create your own demo_fonts_url() function to override in a child theme.
-	 *
-	 * @since Bold Photography 1.0
-	 *
-	 * @return string Google fonts URL for the theme.
+/**
+ * Register custom fonts.
+ */
+function demo_fonts_url() {
+	$fonts_url = '';
+
+	/*
+	 * translators: If there are characters in your language that are not supported
+	 * by Libre Franklin, translate this to 'off'. Do not translate into your own language.
 	 */
-	function demo_fonts_url() {
-		$fonts_url = '';
+	$lato = _x( 'on', 'Libre Franklin font: on or off', 'demo' );
 
-		/* Translators: If there are characters in your language that are not
-		* supported by Montserrat, translate this to 'off'. Do not translate
-		* into your own language.
-		*/
-		$open_sans = _x( 'on', 'Open Sans: on or off', 'demo' );
+	if ( 'off' !== $lato ) {
+		$font_families = array();
 
-		/* Translators: If there are characters in your language that are not
-		* supported by Montserrat, translate this to 'off'. Do not translate
-		* into your own language.
-		*/
-		$josefin_sans = _x( 'on', 'Josefin Sans: on or off', 'demo' );
+		$font_families[] = 'Lato:300,300i,400,400i,600,600i,800,800i';
 
-		/* Translators: If there are characters in your language that are not
-		* supported by Playfair Display, translate this to 'off'. Do not translate
-		* into your own language.
-		*/
-		$oswald = _x( 'on', 'Oswald: on or off', 'demo' );
+		$query_args = array(
+			'family'  => urlencode( implode( '|', $font_families ) ),
+			'subset'  => urlencode( 'latin,latin-ext' ),
+			'display' => urlencode( 'fallback' ),
+		);
 
-		if ( 'off' !== $open_sans || 'off' !== $josefin_sans || 'off' !== $oswald) {
-			$font_families = array();
-
-			if ( 'off' !== $open_sans ) {
-			$font_families[] = 'Open Sans:200,300,400,500,600,700,400italic,700italic';
-			}
-
-			if ( 'off' !== $josefin_sans ) {
-			$font_families[] = 'Josefin Sans:200,300,400,500,600,700,400italic,700italic';
-			}
-
-			if ( 'off' !== $oswald ) {
-			$font_families[] = 'Oswald:200,300,400,500,600,700,400italic,700italic';
-			}
-			
-
-			$query_args = array(
-				'family' => urlencode( implode( '|', $font_families ) ),
-				'subset' => urlencode( 'latin,latin-ext' ),
-			);
-
-			$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-		}
-		return esc_url( $fonts_url );
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
 	}
-endif;
+
+	return esc_url_raw( $fonts_url );
+}
 
 /**
  * Count the number of footer sidebars to enable dynamic classes for the footer

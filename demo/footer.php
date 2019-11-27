@@ -17,6 +17,8 @@
 
 		<?php get_template_part( 'template-parts/footer/footer-widgets' ); ?>
 
+		<?php get_template_part( 'template-parts/footer/footer-menu' ); ?>
+
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'demo' ) ); ?>">
 				<?php
