@@ -143,9 +143,13 @@ strong {
 
 code,
 kbd,
+pre,
 samp {
-	font-family: monospace, monospace; /* 1 */
-	font-size: 1em; /* 2 */
+	background-color: #dcd7ca;
+	border-radius: 0.2rem;
+	font-family: monospace;
+    font-size: 1em;
+    padding: 0.4rem 0.6rem;
 }
 
 /**
@@ -490,21 +494,12 @@ address {
 }
 
 pre {
-	background: #eee;
-	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 15px;
-	font-size: 0.9375rem;
-	line-height: 1.6;
-	margin-bottom: 1.6em;
-	max-width: 100%;
-	overflow: auto;
-	padding: 1.6em;
-}
-
-code, kbd, tt, var {
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	font-size: 15px;
-	font-size: 0.9375rem;
+	border: 0.1rem solid #dcd7ca;
+    line-height: 1.5;
+    margin: 4rem 0;
+    overflow: auto;
+    padding: 3rem ;
+    text-align: left;
 }
 
 abbr, acronym {
@@ -608,8 +603,48 @@ figure {
 }
 
 table {
-	margin: 0 0 1.5em;
+	border: 0.1rem solid #dcd7ca;
+	border-collapse: collapse;
+	border-spacing: 0;
+	empty-cells: show;
+	font-size: 1.6rem;
+	margin: 4rem 0;
+	max-width: 100%;
+	overflow: hidden;
 	width: 100%;
+}
+
+.alignleft > table {
+	margin: 0;
+}
+
+.alignright > table {
+	margin: 0;
+}
+
+th,
+td {
+	border: 0.1rem solid #dcd7ca;
+	line-height: 1.4;
+	margin: 0;
+	overflow: visible;
+	padding: 0.75em;
+}
+
+caption {
+	background: #dcd7ca;
+	font-weight: 600;
+	padding: 0.75em;
+	text-align: center;
+}
+
+thead {
+	vertical-align: bottom;
+	white-space: nowrap;
+}
+
+th {
+	font-weight: 700;
 }
 
 /*--------------------------------------------------------------
@@ -777,12 +812,14 @@ a:hover, a:focus, a:active {
 }
 
 .main-navigation li {
-	float: left;
+	line-height: 1.25;
 	position: relative;
 }
 
 .main-navigation a {
 	display: block;
+	line-height: 1.2;
+	padding: 2rem 2.5rem;
 	text-decoration: none;
 }
 
@@ -937,6 +974,7 @@ a:hover, a:focus, a:active {
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
+
 .site-title {
 	font-size: 3.5rem;
 }
@@ -1007,10 +1045,13 @@ a:hover, a:focus, a:active {
 }
 
 /* Make sure embeds and iframes fit their containers. */
+svg,
 embed,
 iframe,
 object {
-	max-width: 100%;
+	display: block;
+    height: auto;
+    max-width: 100%;
 }
 
 /* Make sure logo link wraps around logo image. */
@@ -1088,4 +1129,291 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	11. Entry Content
+/* -------------------------------------------------------------------------- */
+
+
+.entry-content {
+	line-height: 1.5;
+}
+
+.entry-content > * {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.25em;
+}
+
+.entry-content > *:first-child {
+	margin-top: 0;
+}
+
+.entry-content > *:last-child {
+	margin-bottom: 0;
+}
+
+.read-more-button-wrap {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.entry-content a:hover,
+.entry-content a:focus {
+	text-decoration: none;
+}
+
+.entry-content p,
+.entry-content li {
+	line-height: 1.4;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+	margin: 4rem auto 2rem;
+}
+
+.entry-content ul ul,
+.entry-content ol ol,
+.entry-content ul ol,
+.entry-content ol ul {
+	margin-bottom: 1rem;
+}
+
+.entry-content hr {
+	margin: 4rem auto;
+}
+
+.post-navigation {
+	font-size: 2.1rem;
+}
+
+.post-navigation a {
+	font-weight: 600;
+}
+
+dt,
+dd {
+	line-height: 1.5;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dt + dd {
+	margin-top: 0.5rem;
+}
+
+dd + dt {
+	margin-top: 1.5rem;
+}
+
+/* Base Transitions -------------------------- */
+
+a,
+path {
+	transition: all 0.15s linear;
+}
+
+
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	height: 1em;
+	position: relative;
+	top: -0.0625em;
+	vertical-align: middle;
+	width: 1em;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+@media screen and (min-width: 37.5em) {
+	.primary-menu ul {
+	    background-color: #000000;
+	}
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	16. Site Footer
+/* -------------------------------------------------------------------------- */
+
+
+.footer-nav-widgets-wrapper,
+#site-footer {
+	background-color: #fff;
+	border-color: #dedfdf;
+	border-style: solid;
+	border-width: 0;
+}
+
+.footer-top-visible .footer-nav-widgets-wrapper,
+.footer-top-hidden #site-footer {
+	margin-top: 5rem;
+}
+
+.reduced-spacing.footer-top-visible .footer-nav-widgets-wrapper,
+.reduced-spacing.footer-top-hidden #site-footer {
+	border-top-width: 0.1rem;
+}
+
+.footer-top,
+.footer-widgets-outer-wrapper,
+#site-footer {
+	padding: 3rem 0;
+}
+
+
+/* Footer Top -------------------------------- */
+
+.footer-top {
+	display: flex;
+	border-bottom: 0.1rem solid #dedfdf;
+	justify-content: space-between;
+}
+
+/* FOOTER MENU */
+
+.footer-menu {
+	font-size: 1.8rem;
+	font-weight: 700;
+	letter-spacing: -0.0277em;
+}
+
+.footer-menu li {
+	line-height: 1.25;
+	margin: 0.25em 0 0 0;
+}
+
+.footer-menu a {
+	text-decoration: none;
+}
+
+.footer-menu a:hover,
+.footer-menu a:focus {
+	text-decoration: underline;
+}
+
+/* FOOTER SOCIAL */
+
+.footer-social-wrapper {
+	margin: 0;
+	width: 100%;
+}
+
+.has-footer-menu .footer-social-wrapper {
+	flex-shrink: 0;
+	margin-left: 1rem;
+	width: 50%;
+}
+
+ul.footer-social {
+	margin: -0.5rem 0 0 -0.5rem;
+}
+
+.has-footer-menu .footer-social {
+	justify-content: flex-end;
+}
+
+ul.footer-social li {
+	margin: 0.5rem 0 0 0.5rem;
+}
+
+.footer-social a {
+	background-color: #cd2653;
+	height: 3.6rem;
+	width: 3.6rem;
+}
+
+.footer-social a::before {
+	font-size: 1.6rem;
+}
+
+/* Footer Widgets ---------------------------- */
+
+.footer-widgets-outer-wrapper {
+	border-bottom: 0.1rem solid #dedfdf;
+}
+
+.footer-widgets + .footer-widgets {
+	margin-top: 3rem;
+}
+
+/* Footer Bottom ----------------------------- */
+
+#site-footer {
+	font-size: 1.6rem;
+}
+
+#site-footer .section-inner {
+	align-items: baseline;
+	display: flex;
+	justify-content: space-between;
+}
+
+#site-footer a {
+	text-decoration: none;
+}
+
+#site-footer a:focus,
+#site-footer a:hover {
+	text-decoration: underline;
+}
+
+.footer-copyright a,
+.powered-by-wordpress a {
+	color: inherit;
+}
+
+.powered-by-wordpress,
+.to-the-top {
+	color: #6d6d6d;
+}
+
+a.to-the-top > * {
+	pointer-events: none;
+}
+
+.footer-copyright {
+	font-weight: 600;
+	margin: 0;
+}
+
+.powered-by-wordpress {
+	display: none;
+	margin: 0 0 0 2.4rem;
+}
+
+.to-the-top-long {
+	display: none;
+}
+
+.reset-list-style, 
+.reset-list-style ul, 
+.reset-list-style ol {
+	list-style: none;
+	margin: 0;
+}
+
+@media (min-width: 1000px) {
+	.footer-menu {
+		align-items: baseline;
+	    display: flex;
+	    justify-content: flex-start;
+	    flex-wrap: wrap;
+	    font-size: 2.1rem;
+	    margin: -1.2rem 0 0 -2.4rem;
+	}
 }

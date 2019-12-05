@@ -2,40 +2,65 @@
 /**
  * The template for displaying the footer
  *
- * Contains the closing of the #content div and all content after.
+ * Contains the opening of the #site-footer div and all content after.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package demo
+ * @package WordPress
+ * @subpackage Twenty_Twenty
+ * @since 1.0.0
  */
 
 ?>
+			<footer id="site-footer" role="contentinfo" class="header-footer-group">
 
-	</div><!-- #content -->
+				<div class="section-inner">
 
-	<footer id="colophon" class="site-footer">
+					<div class="footer-credits">
 
-		<?php get_template_part( 'template-parts/footer/footer-widgets' ); ?>
+						<p class="footer-copyright">&copy;
+							<?php
+							echo date_i18n(
+								/* translators: Copyright date format, see https://secure.php.net/date */
+								_x( 'Y', 'copyright date format', 'twentytwenty' )
+							);
+							?>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo bloginfo( 'name' ); ?></a>
+						</p><!-- .footer-copyright -->
 
-		<?php get_template_part( 'template-parts/footer/footer-menu' ); ?>
+						<p class="powered-by-wordpress">
+							<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentytwenty' ) ); ?>">
+								<?php _e( 'Powered by WordPress', 'twentytwenty' ); ?>
+							</a>
+						</p><!-- .powered-by-wordpress -->
 
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'demo' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'demo' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'demo' ), 'demo', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+					</div><!-- .footer-credits -->
 
-<?php wp_footer(); ?>
+					<a class="to-the-top" href="#site-header">
+						<span class="to-the-top-long">
+							<?php
+							/* translators: %s: HTML character for up arrow */
+							printf( __( 'To the top %s', 'twentytwenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
+							?>
+						</span><!-- .to-the-top-long -->
+						<span class="to-the-top-short">
+							<?php
+							/* translators: %s: HTML character for up arrow */
+							printf( __( 'Up %s', 'twentytwenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
+							?>
+						</span><!-- .to-the-top-short -->
+					</a><!-- .to-the-top -->
 
-</body>
+				</div><!-- .section-inner -->
+
+			</footer><!-- #site-footer -->
+
+		<?php wp_footer(); ?>
+
+	</body>
 </html>
+
+
+
+
+

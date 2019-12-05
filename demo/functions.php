@@ -254,13 +254,30 @@ function demo_scripts() {
 	// Theme block stylesheet.
 	wp_enqueue_style( 'demo-block-style', get_theme_file_uri( 'assets/css/blocks.css' ), array( 'demo-style' ), '1.0' );
 
-	wp_enqueue_script( 'demo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'demo-navigation', get_template_directory_uri() . 'assets/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'demo-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'demo-skip-link-focus-fix', get_template_directory_uri() . 'assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	wp_enqueue_script( 'demo-script', get_theme_file_uri( 'assets/js/custom-scripts.js' ), $deps, '201800703', true );
+
+	wp_localize_script( 'demo-script', 'demoOptions', array(
+		'screenReaderText' => array(
+			'expand'   => esc_html__( 'expand child menu', 'demo' ),
+			'collapse' => esc_html__( 'collapse child menu', 'demo' ),
+			'icon'     => demo_get_svg( array(
+					'icon'     => 'angle-down',
+					'fallback' => true,
+				)
+			),
+		),
+		'rtl' => is_rtl(),
+		
+		'dropdownIcon'     => demo_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) ),
+	) );
 }
 add_action( 'wp_enqueue_scripts', 'demo_scripts' );
 
@@ -318,4 +335,9 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * SVG icons functions and filters.
+ */
+require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
