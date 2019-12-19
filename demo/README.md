@@ -1,24 +1,3 @@
-Just started our WordPress theme.
-
-
-First of all we will create free version.
-
-We will just add the following section for the timebeing: 
-Custom header
-Featured Content section 
-Blog
-Footer
-
-Dhiraj
-You can start working on Featured Content Section,
-See https://catchthemes.com/themes/fotografie/
-
-The section after menu is featured content section. Tyo theme download gara ani kasari gareko cha hera na hai .
-
-I will work in designs and front end development. 
-
-
-
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
 _s
