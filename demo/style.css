@@ -1417,3 +1417,7 @@ a.to-the-top > * {
 	    margin: -1.2rem 0 0 -2.4rem;
 	}
 }
+
+.article-inner-wrapper .entry-container {
+	padding: 0 30px;
+}
