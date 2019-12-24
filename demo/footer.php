@@ -36,7 +36,7 @@
 
 					</div><!-- .footer-credits -->
 
-					<a class="to-the-top" href="#masthead">
+					<a id="to-the-top" href="#masthead">
 						<span class="to-the-top-long">
 							<?php
 							/* translators: %s: HTML character for up arrow */
