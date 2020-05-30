@@ -979,6 +979,42 @@ a:hover, a:focus, a:active {
 	font-size: 3.5rem;
 }
 
+#site-header {
+	z-index: 2;
+}
+
+.header-inner {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	padding: 2.8rem 0;
+}
+
+.header-titles-wrapper {
+	margin-right: 4rem;
+	max-width: 50%;
+	padding: 0;
+	text-align: left;
+}
+
+.header-titles {
+	align-items: baseline;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin: -1rem 0 0 -2.4rem;
+}
+
+.header-titles .site-title,
+.header-titles .site-logo,
+.header-titles .site-description {
+	margin: 1rem 0 0 2.4rem;
+}
+
+.wp-custom-logo .header-titles {
+	align-items: center;
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -1005,6 +1041,8 @@ a:hover, a:focus, a:active {
 	clear: both;
 	margin: 0 0 1.5em;
 }
+
+
 
 /*--------------------------------------------------------------
 ## Comments
