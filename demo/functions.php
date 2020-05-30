@@ -31,7 +31,7 @@ if ( ! function_exists( 'demo_setup' ) ) :
 		 * This theme styles the visual editor to resemble the theme style,
 		 * specifically font, colors, and column width.
 		  */
-		add_editor_style( array( 'assets/css/editor-style.css', demo_fonts_url() ) );
+		add_editor_style( array( '/assets/css/editor-style.css', demo_fonts_url() ) );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -175,9 +175,9 @@ function demo_fonts_url() {
 
 	/*
 	 * translators: If there are characters in your language that are not supported
-	 * by Libre Franklin, translate this to 'off'. Do not translate into your own language.
+	 * by Lato, translate this to 'off'. Do not translate into your own language.
 	 */
-	$lato = _x( 'on', 'Libre Franklin font: on or off', 'demo' );
+	$lato = _x( 'on', 'Lato font: on or off', 'demo' );
 
 	if ( 'off' !== $lato ) {
 		$font_families = array();
@@ -252,19 +252,20 @@ function demo_scripts() {
 	wp_enqueue_style( 'demo-fonts', demo_fonts_url(), array(), null );
 
 	// Theme block stylesheet.
-	wp_enqueue_style( 'demo-block-style', get_theme_file_uri( 'assets/css/blocks.css' ), array( 'demo-style' ), '1.0' );
+	wp_enqueue_style( 'demo-block-style', get_theme_file_uri( '/assets/css/blocks.css' ), array( 'demo-style' ), '1.0' );
 
-	wp_enqueue_script( 'demo-navigation', get_template_directory_uri() . 'assets/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'demo-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'demo-skip-link-focus-fix', get_template_directory_uri() . 'assets/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'demo-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'demo-script', get_theme_file_uri( 'assets/js/custom-scripts.js' ), $deps, '201800703', true );
+	wp_enqueue_script( 'demo-script', get_theme_file_uri( '/assets/js/custom-scripts.js' ), $deps, '201800703', true );
 
-	wp_localize_script( 'demo-script', 'demoOptions', array(
+
+	wp_localize_script( 'demo-script', 'demoscreenReaderText', array(
 		'screenReaderText' => array(
 			'expand'   => esc_html__( 'expand child menu', 'demo' ),
 			'collapse' => esc_html__( 'collapse child menu', 'demo' ),
@@ -280,9 +281,6 @@ function demo_scripts() {
 	) );
 }
 add_action( 'wp_enqueue_scripts', 'demo_scripts' );
-
-
-
 
 if ( ! function_exists( 'demo_excerpt_more' ) ) :
 	/**
@@ -340,4 +338,3 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
-

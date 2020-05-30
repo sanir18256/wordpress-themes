@@ -8,9 +8,8 @@
 ?>
 
 <div class="site-search">
-	<button class="search-toggle" aria-expanded="false">
-		<span class="screen-reader-text"><?php esc_html_e( 'Search', 'demo' ); ?></span>
-	</button><!-- .search-toggle -->
+	<button class="menu-toggle search-toggle" aria-expanded="false"><?php echo demo_get_svg( array( 'icon' => 'search' ) ); echo demo_get_svg( array( 'icon' => 'close' ) ); ?><span class="screen-reader-text"><?php esc_html_e( 'Search', 'bold-photography' ); ?></span>
+	</button>
 	
 	<div class="search-wrapper">
 		<?php get_search_form(); ?>
